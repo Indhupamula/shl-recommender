@@ -2,7 +2,7 @@ import json
 import pickle
 import numpy as np
 import faiss
-import google.generativeai as genai
+import google.genai as genai
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -15,7 +15,7 @@ from bs4 import BeautifulSoup
 load_dotenv()
 
 gemini_api_key = os.getenv("GEMINI_API_KEY")
-genai.configure(api_key=gemini_api_key)
+client = genai.Client(api_key=gemini_api_key)
 
 app = FastAPI(title="SHL Assessment Recommender")
 
@@ -37,7 +37,7 @@ with open("assessment_data.pkl", "rb") as data_file:
 with open("search_texts.pkl", "rb") as text_file:
     stored_texts = pickle.load(text_file)
 
-gemini_model = genai.GenerativeModel("gemini-2.0-flash")
+gemini_model = client
 print("All models loaded successfully!")
 
 class QueryInput(BaseModel):
