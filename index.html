@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHL Assessment Recommender</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f0f4f8;
+            min-height: 100vh;
+        }
+
+        .top-bar {
+            background: #c8102e;
+            color: white;
+            padding: 16px 32px;
+        }
+
+        .top-bar h1 { font-size: 22px; font-weight: 600; }
+        .top-bar p { font-size: 13px; opacity: 0.85; margin-top: 4px; }
+
+        .main-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .search-card {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            margin-bottom: 32px;
+        }
+
+        .search-card h2 { font-size: 18px; color: #1a1a2e; margin-bottom: 8px; }
+        .search-card p { color: #666; font-size: 14px; margin-bottom: 20px; }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 15px;
+            resize: vertical;
+            font-family: inherit;
+            transition: border 0.2s;
+        }
+
+        textarea:focus { outline: none; border-color: #c8102e; }
+
+        .search-btn {
+            background: #c8102e;
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 14px;
+            transition: background 0.2s;
+        }
+
+        .search-btn:hover { background: #a50d26; }
+        .search-btn:disabled { background: #ccc; cursor: not-allowed; }
+
+        .sample-queries { margin-top: 14px; }
+        .sample-queries p { font-size: 13px; color: #888; margin-bottom: 8px; }
+
+        .sample-btn {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            margin: 4px;
+            transition: background 0.2s;
+        }
+
+        .sample-btn:hover { background: #ffe0e0; border-color: #c8102e; color: #c8102e; }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            display: none;
+        }
+
+        .spinner {
+            border: 4px solid #f0f0f0;
+            border-top: 4px solid #c8102e;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .results-section { display: none; }
+
+        .results-header {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 16px;
+        }
+
+        /* TABLE STYLES */
+        .table-wrapper {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        thead {
+            background: #c8102e;
+            color: white;
+        }
+
+        thead th {
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.15s;
+        }
+
+        tbody tr:hover { background: #fff5f5; }
+        tbody tr:last-child { border-bottom: none; }
+
+        tbody td {
+            padding: 14px 16px;
+            vertical-align: middle;
+            color: #333;
+        }
+
+        .assessment-link {
+            color: #c8102e;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .assessment-link:hover { text-decoration: underline; }
+
+        .badge {
+            display: inline-block;
+            background: #fff0f0;
+            color: #c8102e;
+            border: 1px solid #ffd0d0;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            margin: 2px;
+        }
+
+        .badge-green {
+            background: #f0fff4;
+            color: #276749;
+            border-color: #c6f6d5;
+        }
+
+        .desc-cell {
+            max-width: 300px;
+            color: #555;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .error-msg {
+            background: #fff0f0;
+            border: 1px solid #ffd0d0;
+            color: #c8102e;
+            padding: 16px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .result-count {
+            background: white;
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            color: #555;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <h1>🎯 SHL Assessment Recommender</h1>
+    <p>Find the right assessments for your hiring needs using AI</p>
+</div>
+
+<div class="main-container">
+    <div class="search-card">
+        <h2>Enter Job Description or Query</h2>
+        <p>Type a natural language query, paste a job description, or enter a URL to a job posting.</p>
+        
+        <textarea id="queryInput" placeholder="Example: I am hiring a Java developer who can collaborate with business teams..."></textarea>
+        
+        <br>
+        <button class="search-btn" id="searchBtn" onclick="getRecommendations()">
+            🔍 Find Assessments
+        </button>
+
+        <div class="sample-queries">
+            <p>Try a sample query:</p>
+            <button class="sample-btn" onclick="setSample('I am hiring for Java developers who can also collaborate effectively with my business teams.')">Java Developer</button>
+            <button class="sample-btn" onclick="setSample('Looking to hire mid-level professionals proficient in Python, SQL and JavaScript.')">Python/SQL</button>
+            <button class="sample-btn" onclick="setSample('Hiring an analyst, wants to screen using cognitive and personality tests.')">Analyst Role</button>
+        </div>
+    </div>
+
+    <div class="loading" id="loadingDiv">
+        <div class="spinner"></div>
+        <p>Finding best assessments using AI... Please wait</p>
+    </div>
+
+    <div class="error-msg" id="errorDiv">
+        ⚠️ Something went wrong. Please make sure the API is running!
+    </div>
+
+    <div class="results-section" id="resultsDiv">
+        <div class="result-count" id="resultCount"></div>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Assessment Name</th>
+                        <th>Test Type</th>
+                        <th>Remote</th>
+                        <th>Adaptive</th>
+                        <th>Duration</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsTable"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    const API_URL = "http://localhost:8000";
+
+    function setSample(text) {
+        document.getElementById("queryInput").value = text;
+    }
+
+    async function getRecommendations() {
+        const query = document.getElementById("queryInput").value.trim();
+        
+        if (!query) {
+            alert("Please enter a query!");
+            return;
+        }
+
+        document.getElementById("searchBtn").disabled = true;
+        document.getElementById("loadingDiv").style.display = "block";
+        document.getElementById("resultsDiv").style.display = "none";
+        document.getElementById("errorDiv").style.display = "none";
+
+        try {
+            const response = await fetch(`${API_URL}/recommend`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ query: query })
+            });
+
+            const data = await response.json();
+            const assessments = data.recommended_assessments;
+
+            document.getElementById("resultCount").textContent = 
+                `✅ Found ${assessments.length} recommended assessments for your query`;
+
+            let rows = "";
+            assessments.forEach((item, index) => {
+                const types = item.test_type.map(t => 
+                    `<span class="badge">${t}</span>`).join("") || "-";
+                
+                const remote = item.remote_support === "Yes" ? 
+                    '<span class="badge badge-green">✓ Yes</span>' : 
+                    '<span style="color:#999">No</span>';
+                
+                const adaptive = item.adaptive_support === "Yes" ? 
+                    '<span class="badge badge-green">✓ Yes</span>' : 
+                    '<span style="color:#999">No</span>';
+                
+                const duration = item.duration > 0 ? `${item.duration} mins` : "-";
+                
+                const desc = item.description ? 
+                    item.description.substring(0, 150) + "..." : "-";
+
+                rows += `
+                <tr>
+                    <td><strong>${index + 1}</strong></td>
+                    <td><a class="assessment-link" href="${item.url}" target="_blank">${item.name}</a></td>
+                    <td>${types}</td>
+                    <td>${remote}</td>
+                    <td>${adaptive}</td>
+                    <td>${duration}</td>
+                    <td class="desc-cell">${desc}</td>
+                </tr>`;
+            });
+
+            document.getElementById("resultsTable").innerHTML = rows;
+            document.getElementById("resultsDiv").style.display = "block";
+
+        } catch (error) {
+            document.getElementById("errorDiv").style.display = "block";
+        } finally {
+            document.getElementById("loadingDiv").style.display = "none";
+            document.getElementById("searchBtn").disabled = false;
+        }
+    }
+</script>
+
+</body>
+</html>
+
+

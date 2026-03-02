@@ -1,0 +1,257 @@
+{
+  "total_queries": 10,
+  "mean_balance_score": 0.7625,
+  "query_results": [
+    {
+      "query": "I am hiring for Java developers who can also collaborate effectively with my business teams.",
+      "recommendations": 10,
+      "unique_types": [
+        "C",
+        "P",
+        "B",
+        "E",
+        "K",
+        "D",
+        "A"
+      ],
+      "balance_score": 0.875,
+      "urls": [
+        "https://www.shl.com/products/product-catalog/view/virtual-assessment-and-development-centers/",
+        "https://www.shl.com/products/product-catalog/view/universal-competency-framework-job-profiling-guide/",
+        "https://www.shl.com/products/product-catalog/view/pjm-development-report/",
+        "https://www.shl.com/products/product-catalog/view/global-skills-development-report/",
+        "https://www.shl.com/products/product-catalog/view/job-control-language-new/",
+        "https://www.shl.com/products/product-catalog/view/java-2-platform-enterprise-edition-1-4-fundamental/",
+        "https://www.shl.com/products/product-catalog/view/smart-interview-live-coding/",
+        "https://www.shl.com/products/product-catalog/view/java-8-new/",
+        "https://www.shl.com/products/product-catalog/view/software-business-analysis/",
+        "https://www.shl.com/products/product-catalog/view/remoteworkq/"
+      ]
+    },
+    {
+      "query": "Looking to hire mid-level professionals who are proficient in Python, SQL and Java Script.",
+      "recommendations": 10,
+      "unique_types": [
+        "P",
+        "C",
+        "B",
+        "E",
+        "K",
+        "D",
+        "A"
+      ],
+      "balance_score": 0.875,
+      "urls": [
+        "https://www.shl.com/products/product-catalog/view/universal-competency-framework-job-profiling-guide/",
+        "https://www.shl.com/products/product-catalog/view/virtual-assessment-and-development-centers/",
+        "https://www.shl.com/products/product-catalog/view/global-skills-development-report/",
+        "https://www.shl.com/products/product-catalog/view/entry-level-technical-support-solution/",
+        "https://www.shl.com/products/product-catalog/view/universal-competency-framework-interview-guide/",
+        "https://www.shl.com/products/product-catalog/view/python-new/",
+        "https://www.shl.com/products/product-catalog/view/smart-interview-live-coding/",
+        "https://www.shl.com/products/product-catalog/view/job-control-language-new/",
+        "https://www.shl.com/products/product-catalog/view/interviewing-and-hiring-concepts-u-s/",
+        "https://www.shl.com/products/product-catalog/view/microsoft-sql-server-2014-programming/"
+      ]
+    },
+    {
+      "query": "I am hiring for an analyst and wants applications to screen using Cognitive and personality tests",
+      "recommendations": 10,
+      "unique_types": [
+        "P",
+        "C",
+        "S",
+        "B",
+        "K",
+        "A"
+      ],
+      "balance_score": 0.75,
+      "urls": [
+        "https://www.shl.com/products/product-catalog/view/executive-scenarios-profile-report/",
+        "https://www.shl.com/products/product-catalog/view/opq-user-report/",
+        "https://www.shl.com/products/product-catalog/view/opq-manager-plus-report/",
+        "https://www.shl.com/products/product-catalog/view/opq-maximising-your-learning-report/",
+        "https://www.shl.com/products/product-catalog/view/occupational-personality-questionnaire-opq32r/",
+        "https://www.shl.com/products/product-catalog/view/verify-interactive-process-monitoring/",
+        "https://www.shl.com/products/product-catalog/view/verify-general-ability-screen/",
+        "https://www.shl.com/products/product-catalog/view/software-business-analysis/",
+        "https://www.shl.com/products/product-catalog/view/verify-following-instructions/",
+        "https://www.shl.com/products/product-catalog/view/hipo-unlocking-potential-report-2-0/"
+      ]
+    },
+    {
+      "query": "I want to hire a customer service representative who is good at problem solving and communication",
+      "recommendations": 10,
+      "unique_types": [
+        "P",
+        "C",
+        "S",
+        "B",
+        "K",
+        "A"
+      ],
+      "balance_score": 0.75,
+      "urls": [
+        "https://www.shl.com/products/product-catalog/view/bilingual-spanish-reservation-agent-solution/",
+        "https://www.shl.com/products/product-catalog/view/entry-level-customer-service-general-solution/",
+        "https://www.shl.com/products/product-catalog/view/entry-level-customer-serv-retail-and-contact-center/",
+        "https://www.shl.com/products/product-catalog/view/agency-manager-solution/",
+        "https://www.shl.com/products/product-catalog/view/customer-service-phone-simulation/",
+        "https://www.shl.com/products/product-catalog/view/business-communications/",
+        "https://www.shl.com/products/product-catalog/view/interpersonal-communications/",
+        "https://www.shl.com/products/product-catalog/view/verify-inductive-reasoning-2014/",
+        "https://www.shl.com/products/product-catalog/view/customer-service-phone-solution/",
+        "https://www.shl.com/products/product-catalog/view/entry-level-sales-solution/"
+      ]
+    },
+    {
+      "query": "Looking for a senior software engineer with leadership skills",
+      "recommendations": 10,
+      "unique_types": [
+        "C",
+        "P",
+        "B",
+        "E",
+        "K",
+        "D",
+        "A"
+      ],
+      "balance_score": 0.875,
+      "urls": [
+        "https://www.shl.com/products/product-catalog/view/opq-leadership-report/",
+        "https://www.shl.com/products/product-catalog/view/global-skills-development-report/",
+        "https://www.shl.com/products/product-catalog/view/opq-ucf-development-action-planner-report/",
+        "https://www.shl.com/products/product-catalog/view/universal-competency-framework-job-profiling-guide/",
+        "https://www.shl.com/products/product-catalog/view/opq-ucf-development-action-planner-report-2-0/",
+        "https://www.shl.com/products/product-catalog/view/workplace-administration-skills-new/",
+        "https://www.shl.com/products/product-catalog/view/human-resources-new/",
+        "https://www.shl.com/products/product-catalog/view/verify-interactive-process-monitoring/",
+        "https://www.shl.com/products/product-catalog/view/adobe-experience-manager-new/",
+        "https://www.shl.com/products/product-catalog/view/remoteworkq-manager-report/"
+      ]
+    },
+    {
+      "query": "Need to hire a sales manager who can manage teams and has good communication skills",
+      "recommendations": 10,
+      "unique_types": [
+        "C",
+        "P",
+        "S",
+        "B",
+        "K",
+        "A"
+      ],
+      "balance_score": 0.75,
+      "urls": [
+        "https://www.shl.com/products/product-catalog/view/sales-transformation-report-sales-manager/",
+        "https://www.shl.com/products/product-catalog/view/sales-transformation-report-2-0-sales-manager/",
+        "https://www.shl.com/products/product-catalog/view/agency-manager-solution/",
+        "https://www.shl.com/products/product-catalog/view/sales-transformation-report-individual-contributor/",
+        "https://www.shl.com/products/product-catalog/view/entry-level-sales-solution/",
+        "https://www.shl.com/products/product-catalog/view/business-communications/",
+        "https://www.shl.com/products/product-catalog/view/interpersonal-communications/",
+        "https://www.shl.com/products/product-catalog/view/workplace-administration-skills-new/",
+        "https://www.shl.com/products/product-catalog/view/salestransformationreport2-0-individualcontributor/",
+        "https://www.shl.com/products/product-catalog/view/sales-interview-guide/"
+      ]
+    },
+    {
+      "query": "Hiring a data scientist who knows machine learning and statistics",
+      "recommendations": 10,
+      "unique_types": [
+        "C",
+        "P",
+        "S",
+        "B",
+        "E",
+        "K",
+        "D",
+        "A"
+      ],
+      "balance_score": 1.0,
+      "urls": [
+        "https://www.shl.com/products/product-catalog/view/ai-skills/",
+        "https://www.shl.com/products/product-catalog/view/global-skills-development-report/",
+        "https://www.shl.com/products/product-catalog/view/data-science-new/",
+        "https://www.shl.com/products/product-catalog/view/computer-science-new/",
+        "https://www.shl.com/products/product-catalog/view/basic-statistics-new/",
+        "https://www.shl.com/products/product-catalog/view/r-programming-new/",
+        "https://www.shl.com/products/product-catalog/view/data-warehousing-concepts/",
+        "https://www.shl.com/products/product-catalog/view/automata-data-science-new/",
+        "https://www.shl.com/products/product-catalog/view/automata-data-science-pro-new/",
+        "https://www.shl.com/products/product-catalog/view/automata-new/"
+      ]
+    },
+    {
+      "query": "Looking for a project manager with good organizational and leadership skills",
+      "recommendations": 10,
+      "unique_types": [
+        "P",
+        "C",
+        "S",
+        "B",
+        "K",
+        "A"
+      ],
+      "balance_score": 0.75,
+      "urls": [
+        "https://www.shl.com/products/product-catalog/view/managerial-scenarios-candidate-report/",
+        "https://www.shl.com/products/product-catalog/view/agency-manager-solution/",
+        "https://www.shl.com/products/product-catalog/view/branch-manager-short-form/",
+        "https://www.shl.com/products/product-catalog/view/opq-leadership-report/",
+        "https://www.shl.com/products/product-catalog/view/account-manager-solution/",
+        "https://www.shl.com/products/product-catalog/view/project-management-2013/",
+        "https://www.shl.com/products/product-catalog/view/human-resources-new/",
+        "https://www.shl.com/products/product-catalog/view/virtual-assessment-and-development-centers/",
+        "https://www.shl.com/products/product-catalog/view/management-scenarios/",
+        "https://www.shl.com/products/product-catalog/view/managerial-scenarios-profile-report/"
+      ]
+    },
+    {
+      "query": "Need a financial analyst with attention to detail and analytical skills",
+      "recommendations": 10,
+      "unique_types": [
+        "P",
+        "S",
+        "B",
+        "K",
+        "A"
+      ],
+      "balance_score": 0.625,
+      "urls": [
+        "https://www.shl.com/products/product-catalog/view/branch-manager-short-form/",
+        "https://www.shl.com/products/product-catalog/view/bank-operations-supervisor-short-form/",
+        "https://www.shl.com/products/product-catalog/view/bank-collections-agent-short-form/",
+        "https://www.shl.com/products/product-catalog/view/bank-administrative-assistant-short-form/",
+        "https://www.shl.com/products/product-catalog/view/bookkeeping-accounting-auditing-clerk-short-form/",
+        "https://www.shl.com/products/product-catalog/view/financial-accounting-new/",
+        "https://www.shl.com/products/product-catalog/view/financial-and-banking-services-new/",
+        "https://www.shl.com/products/product-catalog/view/software-business-analysis/",
+        "https://www.shl.com/products/product-catalog/view/economics-new/",
+        "https://www.shl.com/products/product-catalog/view/ai-skills/"
+      ]
+    },
+    {
+      "query": "Hiring a HR manager who understands people and organizational behavior",
+      "recommendations": 10,
+      "unique_types": [
+        "K",
+        "P",
+        "B"
+      ],
+      "balance_score": 0.375,
+      "urls": [
+        "https://www.shl.com/products/product-catalog/view/opq-emotional-intelligence-report/",
+        "https://www.shl.com/products/product-catalog/view/opq-leadership-report/",
+        "https://www.shl.com/products/product-catalog/view/managerial-scenarios-candidate-report/",
+        "https://www.shl.com/products/product-catalog/view/occupational-personality-questionnaire-opq32r/",
+        "https://www.shl.com/products/product-catalog/view/motivation-questionnaire-mqm5/",
+        "https://www.shl.com/products/product-catalog/view/human-resources-new/",
+        "https://www.shl.com/products/product-catalog/view/workplace-administration-skills-new/",
+        "https://www.shl.com/products/product-catalog/view/interpersonal-communications/",
+        "https://www.shl.com/products/product-catalog/view/sap-hcm-human-capital-management-new/",
+        "https://www.shl.com/products/product-catalog/view/time-management-u-s/"
+      ]
+    }
+  ]
+}
