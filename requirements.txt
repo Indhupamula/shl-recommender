@@ -2,7 +2,7 @@ fastapi
 uvicorn
 sentence-transformers
 faiss-cpu
-google-genai
+google-generativeai
 python-dotenv
 requests
 beautifulsoup4
