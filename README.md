@@ -1,21 +1,28 @@
- SHL Assessment Recommendation System
+# 🎯 SHL Assessment Recommendation System
 
 An intelligent, RAG-based web application that recommends the most relevant SHL assessments given a natural language query, job description text, or URL.
 
- Live Demo
+---
 
-|  Frontend | https://thriving-sunburst-bc0edf.netlify.app |
-|  API Endpoint | https://indhupamula-shl.hf.space |
-|  GitHub | https://github.com/Indhupamula/shl-recommender |
+## 🚀 Live Demo
 
+| Resource | URL |
+|---|---|
+| 🌐 Frontend | https://thriving-sunburst-bc0edf.netlify.app |
+| ⚡ API Endpoint | https://indhupamula-shl.hf.space |
+| 📦 GitHub | https://github.com/Indhupamula/shl-recommender |
 
-##  Problem Statement
+---
+
+## 📋 Problem Statement
 
 Hiring managers struggle to find the right SHL assessments for roles they are hiring for. This system simplifies the process by accepting a natural language query or job description and returning the most relevant **Individual Test Solutions** from SHL's product catalog in a tabular format.
 
+---
 
-##  System Architecture
+## 🏗️ System Architecture
 
+```
 User Query / JD Text / URL
         ↓
 Gemini 2.0 Flash (Query Enhancement)
@@ -27,12 +34,13 @@ Rule-Based Balancer (P / K / Other Types)
 Gemini 2.0 Flash (Reranking)
         ↓
 Top-10 Recommendations (JSON + Table)
+```
 
-
-
+---
 
 ## 📁 Project Structure
 
+```
 shl-recommender/
 ├── scraper.py              # SHL catalog web scraper
 ├── embeddings.py           # Generate FAISS vector index
@@ -49,9 +57,11 @@ shl-recommender/
 ├── requirements.txt        # Python dependencies
 ├── Dockerfile              # Docker deployment config
 └── .gitignore
+```
 
+---
 
-##  Tech Stack
+## 🔧 Tech Stack
 
 | Component | Technology | Reason |
 |---|---|---|
@@ -63,24 +73,27 @@ shl-recommender/
 | Frontend | HTML/CSS/JavaScript | Simple, clean table UI |
 | Deployment | HuggingFace Spaces + Netlify | Free-tier cloud hosting |
 
+---
 
+## 📊 Data Pipeline
 
-##  Data Pipeline
+1. **Scraping** — `scraper.py` crawls SHL catalog with `type=1` filter (Individual Test Solutions only)
+2. **Parsing** — Extracts name, URL, test_type, remote_support, adaptive_support, description, duration
+3. **Storage** — 389 unique assessments saved to `assessments.json`
+4. **Embedding** — `embeddings.py` generates FAISS index from combined text fields
 
-1. Scraping — `scraper.py` crawls SHL catalog with `type=1` filter (Individual Test Solutions only)
-2. Parsing — Extracts name, URL, test_type, remote_support, adaptive_support, description, duration
-3. Storage — 389 unique assessments saved to `assessments.json`
-4. Embedding — `embeddings.py` generates FAISS index from combined text fields
+---
 
+## 🤖 RAG Pipeline
 
-##  RAG Pipeline
+1. **Query Enhancement** — Gemini expands query to identify technical skills, soft skills, job role
+2. **Retrieval** — FAISS finds top-20 semantically similar assessments
+3. **Balancing** — Ensures mix of P/B (Personality), K/A (Knowledge), and other types
+4. **Reranking** — Gemini selects final top-10 most relevant assessments
 
-1. Query Enhancement— Gemini expands query to identify technical skills, soft skills, job role
-2. Retrieval — FAISS finds top-20 semantically similar assessments
-3. Balancing — Ensures mix of P/B (Personality), K/A (Knowledge), and other types
-4. Reranking — Gemini selects final top-10 most relevant assessments
+---
 
-##  API Endpoints
+## 📡 API Endpoints
 
 ### GET /health
 ```json
@@ -114,17 +127,20 @@ shl-recommender/
 
 ## 📏 Evaluation
 
-Mean Recall@10 implemented in `evaluate.py`:
+**Mean Recall@10** implemented in `evaluate.py`:
 
+```
 Recall@K = Relevant found in top K / Total relevant
 Mean Recall@10 = Average Recall@10 across all queries
+```
 
-Evaluation runs at both retrieval stage (FAISS candidates) and final recommendation stage (after reranking).[Pamula_Indhu.csv](https://github.com/user-attachments/files/25693151/Pamula_Indhu.csv)
+Evaluation runs at both retrieval stage (FAISS candidates) and final recommendation stage (after reranking).
 
+---
 
 ## ⚙️ Local Setup
 
-bash
+```bash
 # Clone the repo
 git clone https://github.com/Indhupamula/shl-recommender.git
 cd shl-recommender
@@ -145,5 +161,12 @@ python -m uvicorn api:app --reload
 
 # Open frontend
 start index.html
+```
 
-[SHL_INDHU.pdf](https://github.com/user-attachments/files/25693126/SHL_INDHU.pdf)
+---
+
+## 📝 Submission
+
+- **CSV Predictions:** `Indhu_Pamula.csv` (9 test queries × 10 recommendations)
+- **Approach Document:** `SHL_INDHU.pdf`[SHL_INDHU.pdf](https://github.com/user-attachments/files/25693192/SHL_INDHU.pdf)
+[Pamula_Indhu.csv](https://github.com/user-attachments/files/25693181/Pamula_Indhu.csv)
